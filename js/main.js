@@ -49,34 +49,6 @@ const DESIGNS = [
     },
 ];
 
-// ===== RENDER DESIGNS =====
-function renderDesigns() {
-    const grid = document.getElementById('designGrid');
-    if (!grid) return;
-
-    grid.innerHTML = DESIGNS.map((d, i) => {
-        const tag = d.tag
-            ? '<span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">' + d.tag + '</span>'
-            : '';
-        return '<div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">'
-            + '<div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">'
-            + '<img src="' + d.image + '" alt="' + d.name + '" class="w-full h-full object-cover" loading="' + (i < 2 ? 'eager' : 'lazy') + '">'
-            + tag
-            + '<div class="product-actions absolute inset-x-3 bottom-3">'
-            + '<button onclick="openEnquiry(\'' + d.name + '\')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>'
-            + '</div>'
-            + '</div>'
-            + '<div style="padding:20px;">'
-            + '<h3 style="font-weight:700;margin-bottom:6px;">' + d.name + '</h3>'
-            + '<p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">' + d.description + '</p>'
-            + '<div style="display:flex;align-items:center;justify-content:space-between;">'
-            + '<span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£' + d.from.toFixed(2) + '</strong></span>'
-            + '<button onclick="openEnquiry(\'' + d.name + '\')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>'
-            + '</div>'
-            + '</div>'
-            + '</div>';
-    }).join('');
-}
 
 // ===== ENQUIRY MODAL =====
 function openEnquiry(designName) {
@@ -202,7 +174,6 @@ function initForms() {
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
-    renderDesigns();
     initHeroSlider();
     initCountdown();
     initMobileMenu();
