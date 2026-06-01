@@ -7,7 +7,7 @@ const DESIGNS = [
         name: 'Blue Racing',
         tag: 'Most Popular',
         tagColor: 'bg-brand',
-        image: 'https://teeautocare.com/assets/uploads/media-uploader/focus-blue-racing-logo1747512507.jpg',
+        image: 'images/focus-blue-racing.jpg',
         description: 'Bold blue racing-inspired design. Great for names, numbers, and anything with a sporty edge.',
         from: 41.99,
     },
@@ -16,8 +16,8 @@ const DESIGNS = [
         name: 'Blue Piping',
         tag: 'On Sale',
         tagColor: 'bg-brand',
-        image: 'https://teeautocare.com/assets/uploads/media-uploader/focus-blue-piping-logo1747676456.jpg',
-        description: 'Sleek blue piping on a dark base. Clean and modern — works well with any personalisation.',
+        image: 'images/focus-blue-piping.jpg',
+        description: 'Sleek blue piping on a dark base. Clean and modern, works well with any personalisation.',
         from: 41.99,
     },
     {
@@ -25,7 +25,7 @@ const DESIGNS = [
         name: 'White Piping',
         tag: 'On Sale',
         tagColor: 'bg-brand',
-        image: 'https://teeautocare.com/assets/uploads/media-uploader/focus-white-piping-logo1747676464.jpg',
+        image: 'images/focus-white-piping.jpg',
         description: 'Sharp white piping on black. Understated but stylish. Popular for names and monograms.',
         from: 41.99,
     },
@@ -34,7 +34,7 @@ const DESIGNS = [
         name: 'Red Quilted Piping',
         tag: 'On Sale',
         tagColor: 'bg-brand',
-        image: 'https://teeautocare.com/assets/uploads/media-uploader/focus-blue-qulited-logo-21747676456.jpg',
+        image: 'images/focus-red-quilted.jpg',
         description: 'Quilted finish with vibrant red piping. Stands out. Brilliant for logos and bold text.',
         from: 41.99,
     },
@@ -43,7 +43,7 @@ const DESIGNS = [
         name: 'Blue Quilted Piping',
         tag: 'On Sale',
         tagColor: 'bg-brand',
-        image: 'https://teeautocare.com/assets/uploads/media-uploader/focus-blue-qulited-logo1747676460.jpg',
+        image: 'images/focus-blue-quilted.jpg',
         description: 'Premium quilted look with blue piping. Refined and sporty at the same time.',
         from: 42.98,
     },
@@ -192,7 +192,7 @@ function initForms() {
         e.preventDefault();
         orderForm.classList.add('hidden');
         orderSuccess?.classList.remove('hidden');
-        showToast('<i class="fas fa-check-circle text-green-400"></i> <span>Request sent — we\'ll be in touch shortly!</span>');
+        showToast('<i class="fas fa-check-circle text-green-400"></i> <span>Request sent. We\'ll be in touch shortly!</span>');
     });
 
     // Enquiry form (modal)
@@ -200,7 +200,7 @@ function initForms() {
     enquiryForm?.addEventListener('submit', e => {
         e.preventDefault();
         closeEnquiry();
-        showToast('<i class="fas fa-check-circle text-green-400"></i> <span>Enquiry sent — we\'ll get back to you soon.</span>');
+        showToast('<i class="fas fa-check-circle text-green-400"></i> <span>Enquiry sent. We\'ll get back to you soon.</span>');
         enquiryForm.reset();
     });
 }
