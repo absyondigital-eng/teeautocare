@@ -258,26 +258,23 @@
             ctx.fillStyle    = selectedColour;
 
             // --- Left seat (foreground) ---
-            // Upper backrest centre: ~26% across, ~38% down
-            const lx       = W * 0.255;
+            const lx       = W * 0.235;
             const ly       = H * 0.375;
-            const lMaxW    = W * 0.27;
-            const lSize    = fitFontSize(text, selectedFont, lMaxW, 68, 10);
+            const lMaxW    = W * 0.17;
+            const lSize    = fitFontSize(text, selectedFont, lMaxW, 60, 10);
 
             ctx.save();
             ctx.font = `bold ${lSize}px "${selectedFont}"`;
-            // Slight perspective tilt to match seat angle
             ctx.translate(lx, ly);
             ctx.rotate(-0.04);
             ctx.fillText(text, 0, 0);
             ctx.restore();
 
             // --- Right seat (background, smaller due to perspective) ---
-            // ~65% across, ~33% down, slightly smaller
-            const rx       = W * 0.648;
+            const rx       = W * 0.622;
             const ry       = H * 0.325;
-            const rMaxW    = W * 0.22;
-            const rRawSize = fitFontSize(text, selectedFont, rMaxW, 56, 10);
+            const rMaxW    = W * 0.14;
+            const rRawSize = fitFontSize(text, selectedFont, rMaxW, 50, 10);
             const rSize    = Math.round(rRawSize * 0.88);
 
             ctx.save();
