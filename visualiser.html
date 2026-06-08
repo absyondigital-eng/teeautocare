@@ -238,6 +238,7 @@
             // live metrics (updated each draw)
             tw: 0, th: 0,
             // interaction
+            selected: false,
             mode:     null,
             prevMX:   0, prevMY: 0,
             resizeOriginDist: 0,
@@ -294,47 +295,49 @@
             ctx.textBaseline = 'middle';
             ctx.fillText(s.text, 0, 0);
 
-            // ---- Selection box ----
-            // Dashed border
-            ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-            ctx.lineWidth   = 1.5;
-            ctx.setLineDash([5, 4]);
-            ctx.strokeRect(-hw, -hh, hw * 2, hh * 2);
-            ctx.setLineDash([]);
+            // ---- Selection box (only when selected) ----
+            if (s.selected) {
+                // Dashed border
+                ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+                ctx.lineWidth   = 1.5;
+                ctx.setLineDash([5, 4]);
+                ctx.strokeRect(-hw, -hh, hw * 2, hh * 2);
+                ctx.setLineDash([]);
 
-            // Corner handles
-            [[-hw,-hh],[hw,-hh],[-hw,hh],[hw,hh]].forEach(([x, y]) => {
-                ctx.fillStyle   = '#ffffff';
+                // Corner handles
+                [[-hw,-hh],[hw,-hh],[-hw,hh],[hw,hh]].forEach(([x, y]) => {
+                    ctx.fillStyle   = '#ffffff';
+                    ctx.beginPath();
+                    ctx.arc(x, y, HANDLE_R, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+                    ctx.lineWidth   = 1;
+                    ctx.stroke();
+                });
+
+                // Rotation handle line + circle
+                ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+                ctx.lineWidth   = 1.5;
                 ctx.beginPath();
-                ctx.arc(x, y, HANDLE_R, 0, Math.PI * 2);
+                ctx.moveTo(0, -hh);
+                ctx.lineTo(0, -hh - ROT_OFFSET);
+                ctx.stroke();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(0, -hh - ROT_OFFSET, HANDLE_R + 1, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.strokeStyle = 'rgba(0,0,0,0.25)';
                 ctx.lineWidth   = 1;
                 ctx.stroke();
-            });
 
-            // Rotation handle line + circle
-            ctx.strokeStyle = 'rgba(255,255,255,0.6)';
-            ctx.lineWidth   = 1.5;
-            ctx.beginPath();
-            ctx.moveTo(0, -hh);
-            ctx.lineTo(0, -hh - ROT_OFFSET);
-            ctx.stroke();
-
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            ctx.arc(0, -hh - ROT_OFFSET, HANDLE_R + 1, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(0,0,0,0.25)';
-            ctx.lineWidth   = 1;
-            ctx.stroke();
-
-            // Small rotation icon inside circle
-            ctx.strokeStyle = 'rgba(100,100,100,0.9)';
-            ctx.lineWidth   = 1.5;
-            ctx.beginPath();
-            ctx.arc(0, -hh - ROT_OFFSET, 4, -Math.PI * 0.8, Math.PI * 0.8);
-            ctx.stroke();
+                // Small rotation icon inside circle
+                ctx.strokeStyle = 'rgba(100,100,100,0.9)';
+                ctx.lineWidth   = 1.5;
+                ctx.beginPath();
+                ctx.arc(0, -hh - ROT_OFFSET, 4, -Math.PI * 0.8, Math.PI * 0.8);
+                ctx.stroke();
+            }
             ctx.restore();
         }
 
@@ -399,8 +402,13 @@
             e.preventDefault();
             const pos = getPos(e);
             const hit = hitTest(pos.x, pos.y);
-            if (!hit) return;
 
+            if (!hit) {
+                if (s.selected) { s.selected = false; draw(); }
+                return;
+            }
+
+            s.selected = true;
             s.mode   = hit;
             s.prevMX = pos.x;
             s.prevMY = pos.y;
@@ -485,6 +493,7 @@
             textInput.value = textInput.value.toUpperCase();
             textInput.setSelectionRange(pos, pos);
             s.text = textInput.value;
+            s.selected = s.text.length > 0;
             charCount.textContent = s.text.length;
             fontPreview.textContent = s.text || 'YOUR TEXT';
             draw();
@@ -542,6 +551,7 @@
         document.getElementById('resetBtn').addEventListener('click', () => {
             textInput.value = '';
             s.text          = '';
+            s.selected      = false;
             s.colour        = '#ffffff';
             s.font          = 'Impact';
             s.tx            = W * 0.50;
