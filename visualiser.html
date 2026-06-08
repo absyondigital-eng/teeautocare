@@ -223,8 +223,8 @@
             text:     '',
             font:     'Impact',
             colour:   '#ffffff',
-            tx:       W * 0.235,   // text center x
-            ty:       H * 0.375,   // text center y
+            tx:       W * 0.50,    // text center x
+            ty:       H * 0.40,   // text center y
             fontSize: 52,
             rotation: 0,
             // live metrics (updated each draw)
@@ -243,7 +243,7 @@
         const img = new Image();
         img.onload  = () => { imageLoaded = true; draw(); };
         img.onerror = () => { draw(); };
-        img.src = 'images/blank-seat-cover.jpeg';
+        img.src = 'images/blank-seat-cover.png';
 
         // ===== DRAW =====
         function draw() {
@@ -257,7 +257,7 @@
                 ctx.fillStyle = '#999';
                 ctx.font = '13px Arial';
                 ctx.textAlign = 'center';
-                ctx.fillText('Add blank-seat-cover.jpeg to images folder', W/2, H/2);
+                ctx.fillText('Add blank-seat-cover.png to images folder', W/2, H/2);
             }
 
             if (!s.text) return;
@@ -512,8 +512,8 @@
             s.text          = '';
             s.colour        = '#ffffff';
             s.font          = 'Impact';
-            s.tx            = W * 0.235;
-            s.ty            = H * 0.375;
+            s.tx            = W * 0.50;
+            s.ty            = H * 0.40;
             s.fontSize      = 52;
             s.rotation      = 0;
             charCount.textContent  = '0';
