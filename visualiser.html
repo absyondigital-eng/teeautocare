@@ -218,13 +218,21 @@
         const MAX_FONT     = 100;
         const PADDING      = 10;  // padding inside selection box
 
+        // Print zone: upper backrest / neck area of the seat
+        const ZONE = {
+            x1: W * 0.22,
+            x2: W * 0.78,
+            y1: H * 0.05,
+            y2: H * 0.37,
+        };
+
         // ===== STATE =====
         const s = {
             text:     '',
             font:     'Impact',
             colour:   '#ffffff',
-            tx:       W * 0.50,    // text center x
-            ty:       H * 0.40,   // text center y
+            tx:       W * 0.50,                      // text center x
+            ty:       (ZONE.y1 + ZONE.y2) / 2,     // text center y (mid print zone)
             fontSize: 52,
             rotation: 0,
             // live metrics (updated each draw)
@@ -251,6 +259,12 @@
 
             if (imageLoaded) {
                 ctx.drawImage(img, 0, 0, W, H);
+                // Subtle print zone boundary
+                ctx.strokeStyle = 'rgba(200,200,200,0.18)';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([4, 6]);
+                ctx.strokeRect(ZONE.x1, ZONE.y1, ZONE.x2 - ZONE.x1, ZONE.y2 - ZONE.y1);
+                ctx.setLineDash([]);
             } else {
                 ctx.fillStyle = '#e8e8e8';
                 ctx.fillRect(0, 0, W, H);
@@ -418,6 +432,8 @@
             if (s.mode === 'body') {
                 s.tx += pos.x - s.prevMX;
                 s.ty += pos.y - s.prevMY;
+                s.tx = Math.max(ZONE.x1, Math.min(ZONE.x2, s.tx));
+                s.ty = Math.max(ZONE.y1, Math.min(ZONE.y2, s.ty));
             }
 
             if (s.mode === 'rotate') {
@@ -431,6 +447,13 @@
                 s.fontSize  = Math.round(
                     Math.max(MIN_FONT, Math.min(MAX_FONT, s.resizeOriginFS * scale))
                 );
+                // Clamp font so text stays within zone width
+                if (s.text) {
+                    const maxW = ZONE.x2 - ZONE.x1 - PADDING * 2;
+                    ctx.font = `bold ${s.fontSize}px "${s.font}"`;
+                    const tw = ctx.measureText(s.text).width;
+                    if (tw > maxW) s.fontSize = Math.max(MIN_FONT, Math.floor(s.fontSize * maxW / tw));
+                }
                 // Sync slider
                 document.getElementById('sizeSlider').value = s.fontSize;
                 document.getElementById('sizeVal').textContent = s.fontSize;
@@ -490,6 +513,15 @@
         const sizeVal    = document.getElementById('sizeVal');
         sizeSlider.addEventListener('input', function () {
             s.fontSize = parseInt(this.value);
+            if (s.text) {
+                const maxW = ZONE.x2 - ZONE.x1 - PADDING * 2;
+                ctx.font = `bold ${s.fontSize}px "${s.font}"`;
+                const tw = ctx.measureText(s.text).width;
+                if (tw > maxW) {
+                    s.fontSize = Math.max(MIN_FONT, Math.floor(s.fontSize * maxW / tw));
+                    this.value = s.fontSize;
+                }
+            }
             sizeVal.textContent = s.fontSize;
             draw();
         });
@@ -513,7 +545,7 @@
             s.colour        = '#ffffff';
             s.font          = 'Impact';
             s.tx            = W * 0.50;
-            s.ty            = H * 0.40;
+            s.ty            = (ZONE.y1 + ZONE.y2) / 2;
             s.fontSize      = 52;
             s.rotation      = 0;
             charCount.textContent  = '0';
