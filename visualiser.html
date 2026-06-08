@@ -287,19 +287,19 @@
                 const phw = pw / 2 + PADDING + 6;
                 const phh = ph / 2 + PADDING * 0.8;
                 // Dashed box
-                ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+                ctx.strokeStyle = '#ffffff';
                 ctx.lineWidth   = 1.5;
                 ctx.setLineDash([5, 5]);
                 ctx.strokeRect(-phw, -phh, phw * 2, phh * 2);
                 ctx.setLineDash([]);
                 // Label
-                ctx.fillStyle    = 'rgba(255,255,255,0.25)';
+                ctx.fillStyle    = '#ffffff';
                 ctx.textAlign    = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText('ADD TEXT', 0, 0);
                 // Small hint below
                 ctx.font      = '11px Arial';
-                ctx.fillStyle = 'rgba(255,255,255,0.18)';
+                ctx.fillStyle = 'rgba(255,255,255,0.6)';
                 ctx.fillText('Click to type', 0, phh + 14);
                 ctx.restore();
                 return;
