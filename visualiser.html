@@ -275,7 +275,35 @@
                 ctx.fillText('Add blank-seat-cover.png to images folder', W/2, H/2);
             }
 
-            if (!s.text) return;
+            if (!s.text) {
+                // Ghost placeholder in print zone
+                const cx = (ZONE.x1 + ZONE.x2) / 2;
+                const cy = (ZONE.y1 + ZONE.y2) / 2;
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.font = 'bold 34px "Impact"';
+                const pw  = ctx.measureText('ADD TEXT').width;
+                const ph  = 34 * 1.15;
+                const phw = pw / 2 + PADDING + 6;
+                const phh = ph / 2 + PADDING * 0.8;
+                // Dashed box
+                ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+                ctx.lineWidth   = 1.5;
+                ctx.setLineDash([5, 5]);
+                ctx.strokeRect(-phw, -phh, phw * 2, phh * 2);
+                ctx.setLineDash([]);
+                // Label
+                ctx.fillStyle    = 'rgba(255,255,255,0.25)';
+                ctx.textAlign    = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('ADD TEXT', 0, 0);
+                // Small hint below
+                ctx.font      = '11px Arial';
+                ctx.fillStyle = 'rgba(255,255,255,0.18)';
+                ctx.fillText('Click to type', 0, phh + 14);
+                ctx.restore();
+                return;
+            }
 
             ctx.save();
             ctx.translate(s.tx, s.ty);
@@ -404,6 +432,10 @@
             const hit = hitTest(pos.x, pos.y);
 
             if (!hit) {
+                if (!s.text) {
+                    document.getElementById('textInput').focus();
+                    return;
+                }
                 if (s.selected) { s.selected = false; draw(); }
                 return;
             }
@@ -435,6 +467,7 @@
 
             // Update cursor when idle
             if (!s.mode) {
+                if (!s.text) { canvas.style.cursor = 'pointer'; return; }
                 setCursor(hitTest(pos.x, pos.y));
                 return;
             }
