@@ -12,15 +12,15 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: '#dc2626',
-                        'brand-dark': '#b91c1c',
-                        dark: '#0d0d0d',
-                        'd2': '#141414',
-                        'd3': '#1c1c1c',
-                        'd4': '#242424',
+                        brand: '#dc2626', 'brand-dark': '#b91c1c',
+                        dark: '#0F0F0F',
+                        'd2': '#151515', 'd3': '#1A1A1A', 'd4': '#1F1F1F',
+                        accent: '#E8FF00',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+                        tight: ['"Inter Tight"', '"Inter"', 'system-ui', 'sans-serif'],
+                        mono: ['"Courier New"', 'monospace'],
                     },
                 }
             }
@@ -28,7 +28,7 @@
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,47 +36,44 @@
 <body class="bg-dark text-white font-sans antialiased">
 
     <!-- Announcement Bar -->
-    <div class="bg-brand text-white text-center py-2.5 text-xs sm:text-sm font-medium">
-        Summer Sale - Up to <strong>70% Off</strong> &nbsp;·&nbsp; Free UK Delivery on Orders Over £50
+    <div class="bg-d2 border-b border-white/[0.07] text-center py-2.5">
+        <p class="font-mono text-[11px] text-white/35 tracking-[0.18em] uppercase">Summer Sale &mdash; Up to <span class="text-accent">70% Off</span> &nbsp;&middot;&nbsp; Free UK Delivery on Orders Over &pound;50</p>
     </div>
 
     <!-- ===== NAV ===== -->
-    <nav class="bg-d2 border-b border-white/[0.06] sticky top-0 z-50">
+    <nav class="bg-dark border-b border-white/[0.07] sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-14">
 
-                <a href="/" class="flex items-center gap-2.5 flex-shrink-0">
-                    <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center shadow-lg shadow-brand/30">
-                        <i class="fas fa-car text-white text-xs"></i>
-                    </div>
-                    <span class="text-lg font-black tracking-tight">Tee<span class="text-brand">Auto</span>Care</span>
+                <a href="/" class="flex-shrink-0">
+                    <span class="font-tight font-bold text-sm text-white">TeeAutoCare</span>
                 </a>
 
-                <div class="hidden md:flex items-center gap-7">
-                    <a href="#hero" class="text-white/70 hover:text-white transition-colors text-sm font-medium">Home</a>
-                    <a href="#how-it-works" class="text-white/70 hover:text-white transition-colors text-sm font-medium">How It Works</a>
-                    <a href="#designs" class="text-white/70 hover:text-white transition-colors text-sm font-medium">Our Designs</a>
-                    <a href="#order" class="text-white/70 hover:text-white transition-colors text-sm font-medium">Contact</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#hero" class="font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors">/home</a>
+                    <a href="#how-it-works" class="font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors">/process</a>
+                    <a href="#designs" class="font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors">/designs</a>
+                    <a href="#order" class="font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors">/contact</a>
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <a href="#order" class="hidden sm:inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-brand/25">
+                    <a href="#order" class="hidden sm:inline-flex bg-brand hover:bg-brand-dark text-white font-mono text-[11px] font-semibold px-5 py-2.5 tracking-widest uppercase transition-colors">
                         Get Yours Made
                     </a>
-                    <button id="mobileMenuToggle" class="md:hidden w-9 h-9 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 rounded-xl transition-all ml-1">
+                    <button id="mobileMenuToggle" class="md:hidden w-9 h-9 flex items-center justify-center text-white/50 hover:text-white transition-colors ml-1">
                         <i class="fas fa-bars text-sm"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobileMenu" class="hidden md:hidden border-t border-white/[0.06] bg-d2">
-            <div class="px-4 py-3 space-y-1">
-                <a href="#hero" class="block py-2.5 px-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all">Home</a>
-                <a href="#how-it-works" class="block py-2.5 px-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all">How It Works</a>
-                <a href="#designs" class="block py-2.5 px-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all">Our Designs</a>
-                <a href="#order" class="block py-2.5 px-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all">Contact</a>
-                <a href="#order" class="block mt-2 text-center bg-brand text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors">Get Yours Made</a>
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/[0.07] bg-dark">
+            <div class="px-4 py-2">
+                <a href="#hero" class="block py-3 px-2 font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors border-b border-white/[0.05]">/home</a>
+                <a href="#how-it-works" class="block py-3 px-2 font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors border-b border-white/[0.05]">/process</a>
+                <a href="#designs" class="block py-3 px-2 font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors border-b border-white/[0.05]">/designs</a>
+                <a href="#order" class="block py-3 px-2 font-mono text-[11px] text-white/40 hover:text-white uppercase tracking-widest transition-colors border-b border-white/[0.05]">/contact</a>
+                <a href="#order" class="block mt-3 mb-2 text-center bg-brand text-white font-mono text-[11px] font-semibold px-5 py-3 tracking-widest uppercase transition-colors">Get Yours Made</a>
             </div>
         </div>
     </nav>
@@ -87,26 +84,21 @@
         <div class="hero-slide active absolute inset-0">
             <div class="absolute inset-0 bg-cover bg-center"
                 style="background-image: url('images/hero-1.jpg')">
-                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/75 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-dark/50 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-dark/30"></div>
             </div>
-            <div class="relative h-full flex items-center">
+            <div class="relative h-full flex items-end pb-24 sm:pb-32">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div class="max-w-xl">
-                        <div class="inline-flex items-center gap-2 bg-brand/15 border border-brand/30 text-brand text-xs font-semibold px-4 py-2 rounded-full mb-6">
-                            <span class="w-1.5 h-1.5 bg-brand rounded-full animate-pulse"></span>
-                            Fully Personalised - Any Text, Any Design
-                        </div>
-                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.93] mb-6">
-                            Put your<br><span class="text-brand">name on it.</span>
+                    <div class="max-w-2xl">
+                        <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-6">/Personalised Covers</p>
+                        <h1 class="font-tight text-[clamp(3.5rem,9vw,8rem)] font-black leading-[0.88] tracking-[-0.03em] mb-8">
+                            Put your<br>name<span class="text-accent">*</span><br>on it.
                         </h1>
-                        <p class="text-white/60 text-base sm:text-lg mb-8 leading-relaxed max-w-sm">We print whatever you want onto a premium seat cover and ship it straight to your door. Name, quote, number, logo. You decide.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="#order" class="bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-brand/30 inline-flex items-center gap-2">
-                                Get Yours Made <i class="fas fa-arrow-right text-sm"></i>
+                        <div class="hero-ctas flex flex-wrap items-center gap-4">
+                            <a href="#order" class="bg-brand hover:bg-brand-dark text-white font-mono font-semibold text-[11px] px-7 py-4 tracking-widest uppercase transition-colors">
+                                Get Yours Made
                             </a>
-                            <a href="visualiser.html" class="bg-white/8 hover:bg-white/14 border border-white/15 text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 inline-flex items-center gap-2">
-                                <i class="fas fa-eye text-sm"></i> Visualise Your Design
+                            <a href="visualiser.html" class="border border-white/20 hover:border-white/50 text-white font-mono font-semibold text-[11px] px-7 py-4 tracking-widest uppercase transition-colors">
+                                Visualise Your Design
                             </a>
                         </div>
                     </div>
@@ -117,23 +109,18 @@
         <div class="hero-slide absolute inset-0">
             <div class="absolute inset-0 bg-cover bg-center"
                 style="background-image: url('images/hero-2.jpg')">
-                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/75 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-dark/50 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-dark/30"></div>
             </div>
-            <div class="relative h-full flex items-center">
+            <div class="relative h-full flex items-end pb-24 sm:pb-32">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div class="max-w-xl">
-                        <div class="inline-flex items-center gap-2 bg-white/8 border border-white/15 text-white/70 text-xs font-semibold px-4 py-2 rounded-full mb-6">
-                            <span class="w-1.5 h-1.5 bg-white/50 rounded-full"></span>
-                            Made to order, every time
-                        </div>
-                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.93] mb-6">
-                            Your car.<br>Your style.<br><span class="text-white/40">Your way.</span>
+                    <div class="max-w-2xl">
+                        <p class="font-mono text-[11px] text-white/30 tracking-[0.2em] uppercase mb-6">/Made to order</p>
+                        <h1 class="font-tight text-[clamp(3.5rem,9vw,8rem)] font-black leading-[0.88] tracking-[-0.03em] mb-8">
+                            Your car.<br>Your style.<br><span class="text-white/25">Your way.</span>
                         </h1>
-                        <p class="text-white/60 text-base sm:text-lg mb-8 leading-relaxed max-w-sm">Every seat cover is made specifically for you. No off-the-shelf stuff here, just your design, printed properly, and delivered fast.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="#how-it-works" class="bg-white text-dark hover:bg-white/90 font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 inline-flex items-center gap-2">
-                                How It Works <i class="fas fa-arrow-right text-sm"></i>
+                        <div class="hero-ctas flex flex-wrap items-center gap-4">
+                            <a href="#how-it-works" class="bg-white text-dark hover:bg-white/90 font-mono font-semibold text-[11px] px-7 py-4 tracking-widest uppercase transition-colors">
+                                How It Works
                             </a>
                         </div>
                     </div>
@@ -141,235 +128,188 @@
             </div>
         </div>
 
-        <button class="hero-prev absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/8 hover:bg-white/15 border border-white/15 rounded-full flex items-center justify-center text-white transition-all z-10">
+        <button class="hero-prev absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/15 hover:border-white/40 flex items-center justify-center text-white transition-colors z-10">
             <i class="fas fa-chevron-left text-sm"></i>
         </button>
-        <button class="hero-next absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/8 hover:bg-white/15 border border-white/15 rounded-full flex items-center justify-center text-white transition-all z-10">
+        <button class="hero-next absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/15 hover:border-white/40 flex items-center justify-center text-white transition-colors z-10">
             <i class="fas fa-chevron-right text-sm"></i>
         </button>
 
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            <button class="hero-dot active w-6 h-1.5 bg-white rounded-full transition-all"></button>
-            <button class="hero-dot w-2 h-1.5 bg-white/30 rounded-full transition-all"></button>
+        <div class="absolute bottom-8 left-4 sm:left-8 flex gap-2 z-10">
+            <button class="hero-dot active w-6 h-0.5 bg-white transition-all"></button>
+            <button class="hero-dot w-2 h-0.5 bg-white/30 transition-all"></button>
         </div>
     </section>
 
     <!-- ===== TRUST BAR ===== -->
-    <section class="bg-d3 border-y border-white/[0.05]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-pen-nib text-brand text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-semibold leading-none mb-0.5">100% Personalised</p>
-                        <p class="text-[11px] text-white/40">You choose what goes on it</p>
-                    </div>
+    <div class="border-b border-white/[0.07]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.07]">
+                <div class="py-5 px-6">
+                    <p class="font-mono text-[10px] text-white/25 tracking-widest mb-1">01</p>
+                    <p class="text-xs text-white/55 font-medium">100% Personalised</p>
+                    <p class="font-mono text-[10px] text-white/30 mt-0.5">You choose what goes on it</p>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-truck-fast text-brand text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-semibold leading-none mb-0.5">Fast UK Delivery</p>
-                        <p class="text-[11px] text-white/40">3-5 working days</p>
-                    </div>
+                <div class="py-5 px-6">
+                    <p class="font-mono text-[10px] text-white/25 tracking-widest mb-1">02</p>
+                    <p class="text-xs text-white/55 font-medium">Fast UK Delivery</p>
+                    <p class="font-mono text-[10px] text-white/30 mt-0.5">3-5 working days</p>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-shield-halved text-brand text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-semibold leading-none mb-0.5">Satisfaction Guaranteed</p>
-                        <p class="text-[11px] text-white/40">Not happy? We'll fix it</p>
-                    </div>
+                <div class="py-5 px-6">
+                    <p class="font-mono text-[10px] text-white/25 tracking-widest mb-1">03</p>
+                    <p class="text-xs text-white/55 font-medium">Satisfaction Guaranteed</p>
+                    <p class="font-mono text-[10px] text-white/30 mt-0.5">Not happy? We'll fix it</p>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-rotate-left text-brand text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-semibold leading-none mb-0.5">Easy Returns</p>
-                        <p class="text-[11px] text-white/40">30-day return policy</p>
-                    </div>
+                <div class="py-5 px-6">
+                    <p class="font-mono text-[10px] text-white/25 tracking-widest mb-1">04</p>
+                    <p class="text-xs text-white/55 font-medium">Easy Returns</p>
+                    <p class="font-mono text-[10px] text-white/30 mt-0.5">30-day return policy</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- ===== HOW IT WORKS ===== -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8" id="how-it-works">
+    <section class="py-32 px-4 sm:px-6 lg:px-8" id="how-it-works">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-brand text-xs font-bold uppercase tracking-[0.2em]">Simple process</span>
-                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-3">How it works</h2>
-                <p class="text-white/40 text-sm max-w-xs mx-auto">Three steps and it's on your seat.</p>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <!-- Connector line (desktop) -->
-                <div class="hidden md:block absolute top-10 left-[calc(16.666%+1rem)] right-[calc(16.666%+1rem)] h-px bg-gradient-to-r from-brand/30 via-brand/60 to-brand/30"></div>
-
-                <div class="relative text-center">
-                    <div class="w-20 h-20 bg-d3 border-2 border-brand/30 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
-                        <i class="fas fa-pencil text-brand text-2xl"></i>
-                        <span class="absolute -top-2.5 -right-2.5 w-6 h-6 bg-brand text-white text-xs font-black rounded-full flex items-center justify-center">1</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Tell us what you want</h3>
-                    <p class="text-white/45 text-sm leading-relaxed max-w-xs mx-auto">Name, quote, number, team badge, logo - anything. Send us your idea and we'll make it work.</p>
+                <!-- Left: sticky heading -->
+                <div class="lg:sticky lg:top-28 lg:self-start" data-reveal>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-16">/Process</p>
+                    <h2 class="font-tight text-5xl sm:text-6xl font-black leading-[0.9] tracking-[-0.02em] mb-10">Three steps.<br>That's it.</h2>
+                    <a href="#order" class="inline-block bg-brand hover:bg-brand-dark text-white font-mono font-semibold text-[11px] px-7 py-4 tracking-widest uppercase transition-colors">
+                        Start Your Order
+                    </a>
                 </div>
 
-                <div class="relative text-center">
-                    <div class="w-20 h-20 bg-d3 border-2 border-brand/30 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
-                        <i class="fas fa-print text-brand text-2xl"></i>
-                        <span class="absolute -top-2.5 -right-2.5 w-6 h-6 bg-brand text-white text-xs font-black rounded-full flex items-center justify-center">2</span>
+                <!-- Right: numbered steps -->
+                <div class="divide-y divide-white/[0.07]" data-reveal>
+                    <div class="py-10">
+                        <p class="font-mono text-[11px] text-white/20 tracking-widest mb-4">01</p>
+                        <h3 class="font-tight text-xl font-bold mb-3">Tell us what you want</h3>
+                        <p class="text-white/45 text-sm leading-relaxed">Name, quote, number, team badge, logo &mdash; anything. Send us your idea and we'll make it work.</p>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">We print it for you</h3>
-                    <p class="text-white/45 text-sm leading-relaxed max-w-xs mx-auto">We print your design onto a premium seat cover. Every order is made fresh, nothing is pre-made or sitting in a warehouse.</p>
+                    <div class="py-10">
+                        <p class="font-mono text-[11px] text-white/20 tracking-widest mb-4">02</p>
+                        <h3 class="font-tight text-xl font-bold mb-3">We print it for you</h3>
+                        <p class="text-white/45 text-sm leading-relaxed">We print your design onto a premium seat cover. Every order is made fresh, nothing is pre-made or sitting in a warehouse.</p>
+                    </div>
+                    <div class="py-10">
+                        <p class="font-mono text-[11px] text-white/20 tracking-widest mb-4">03</p>
+                        <h3 class="font-tight text-xl font-bold mb-3">Delivered to your door</h3>
+                        <p class="text-white/45 text-sm leading-relaxed">Dispatched within 3-5 working days to anywhere in the UK. Ready to fit straight out of the box.</p>
+                    </div>
                 </div>
 
-                <div class="relative text-center">
-                    <div class="w-20 h-20 bg-d3 border-2 border-brand/30 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
-                        <i class="fas fa-box-open text-brand text-2xl"></i>
-                        <span class="absolute -top-2.5 -right-2.5 w-6 h-6 bg-brand text-white text-xs font-black rounded-full flex items-center justify-center">3</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Delivered to your door</h3>
-                    <p class="text-white/45 text-sm leading-relaxed max-w-xs mx-auto">Dispatched within 3-5 working days to anywhere in the UK. Ready to fit straight out of the box.</p>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#order" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-brand/25">
-                    Start Your Order <i class="fas fa-arrow-right text-sm"></i>
-                </a>
             </div>
         </div>
     </section>
 
     <!-- ===== DESIGNS ===== -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-d2" id="designs">
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-d2" id="designs">
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-end justify-between mb-12 gap-4 flex-wrap">
+            <div class="flex items-end justify-between mb-16 gap-4 flex-wrap">
                 <div>
-                    <span class="text-brand text-xs font-bold uppercase tracking-[0.2em]">Examples</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mt-2">Pick a base style</h2>
-                    <p class="text-white/40 text-sm mt-2 max-w-sm">Choose a design you like, then tell us what to personalise. We'll handle the rest.</p>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-4">/Designs</p>
+                    <h2 class="font-tight text-4xl sm:text-5xl font-black leading-[0.9] tracking-[-0.02em]">Pick a base style</h2>
+                    <p class="text-white/40 text-sm mt-3 max-w-sm">Choose a design you like, then tell us what to personalise. We'll handle the rest.</p>
                 </div>
-                <a href="#order" class="inline-flex items-center gap-2 text-sm text-brand hover:text-white transition-colors font-medium group">
-                    Order any of these <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                <a href="#order" class="font-mono text-[11px] text-white/40 hover:text-accent uppercase tracking-widest transition-colors border-b border-transparent hover:border-accent pb-px">
+                    Order any of these
                 </a>
             </div>
 
-            <!-- Visualiser CTA banner -->
-            <div class="mb-8 bg-d3 border border-brand/20 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-11 h-11 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-eye text-brand"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-sm">Want to see it before you order?</p>
-                        <p class="text-white/40 text-xs mt-0.5">Try our live visualiser - type your text and see it on the seat in real time.</p>
-                    </div>
+            <!-- Visualiser CTA -->
+            <div class="mb-10 border border-white/[0.07] p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-2">/Visualiser</p>
+                    <p class="font-medium text-sm text-white mb-1">Want to see it before you order?</p>
+                    <p class="text-white/40 text-xs">Try our live visualiser &mdash; type your text and see it on the seat in real time.</p>
                 </div>
-                <a href="visualiser.html" class="flex-shrink-0 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-brand/25 inline-flex items-center gap-2">
-                    <i class="fas fa-wand-magic-sparkles text-xs"></i> Visualise Your Cover
+                <a href="visualiser.html" class="flex-shrink-0 border border-white/20 hover:border-white/50 text-white font-mono font-semibold text-[11px] px-6 py-3 tracking-widest uppercase transition-colors">
+                    Visualise Your Cover
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06]">
 
                 <!-- Card 1 -->
-                <div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">
-                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">
+                <div class="product-card border-0 overflow-hidden bg-d3 transition-colors" style="border-radius:2px;" data-reveal>
+                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#1F1F1F;">
                         <img src="images/focus-blue-racing.jpg" alt="Blue Racing seat cover" class="w-full h-full object-cover">
-                        <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">Most Popular</span>
-                        <div class="product-actions absolute inset-x-3 bottom-3">
-                            <button onclick="openEnquiry('Blue Racing')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>
-                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-white/25 absolute top-3 left-3">Most Popular</span>
                     </div>
-                    <div style="padding:20px;">
-                        <h3 style="font-weight:700;margin-bottom:6px;">Blue Racing</h3>
-                        <p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">Bold blue racing-inspired design. Great for names, numbers, and anything with a sporty edge.</p>
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£41.99</strong></span>
-                            <button onclick="openEnquiry('Blue Racing')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>
+                    <div class="p-5 bg-d3">
+                        <h3 class="font-tight font-bold text-sm mb-2">Blue Racing</h3>
+                        <p class="text-white/45 text-xs leading-relaxed mb-4">Bold blue racing-inspired design. Great for names, numbers, and anything with a sporty edge.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[11px] text-white/40">From <strong class="text-white font-bold">&pound;41.99</strong></span>
+                            <button onclick="openEnquiry('Blue Racing')" class="font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-px bg-transparent border-0 cursor-pointer">Personalise This Design</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">
-                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">
+                <div class="product-card border-0 overflow-hidden bg-d3 transition-colors" style="border-radius:2px;" data-reveal>
+                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#1F1F1F;">
                         <img src="images/focus-blue-piping.jpg" alt="Blue Piping seat cover" class="w-full h-full object-cover">
-                        <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">On Sale</span>
-                        <div class="product-actions absolute inset-x-3 bottom-3">
-                            <button onclick="openEnquiry('Blue Piping')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>
-                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-white/25 absolute top-3 left-3">On Sale</span>
                     </div>
-                    <div style="padding:20px;">
-                        <h3 style="font-weight:700;margin-bottom:6px;">Blue Piping</h3>
-                        <p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">Sleek blue piping on a dark base. Clean and modern, works well with any personalisation.</p>
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£41.99</strong></span>
-                            <button onclick="openEnquiry('Blue Piping')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>
+                    <div class="p-5 bg-d3">
+                        <h3 class="font-tight font-bold text-sm mb-2">Blue Piping</h3>
+                        <p class="text-white/45 text-xs leading-relaxed mb-4">Sleek blue piping on a dark base. Clean and modern, works well with any personalisation.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[11px] text-white/40">From <strong class="text-white font-bold">&pound;41.99</strong></span>
+                            <button onclick="openEnquiry('Blue Piping')" class="font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-px bg-transparent border-0 cursor-pointer">Personalise This Design</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">
-                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">
+                <div class="product-card border-0 overflow-hidden bg-d3 transition-colors" style="border-radius:2px;" data-reveal>
+                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#1F1F1F;">
                         <img src="images/focus-white-piping.jpg" alt="White Piping seat cover" class="w-full h-full object-cover">
-                        <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">On Sale</span>
-                        <div class="product-actions absolute inset-x-3 bottom-3">
-                            <button onclick="openEnquiry('White Piping')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>
-                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-white/25 absolute top-3 left-3">On Sale</span>
                     </div>
-                    <div style="padding:20px;">
-                        <h3 style="font-weight:700;margin-bottom:6px;">White Piping</h3>
-                        <p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">Sharp white piping on black. Understated but stylish. Popular for names and monograms.</p>
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£41.99</strong></span>
-                            <button onclick="openEnquiry('White Piping')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>
+                    <div class="p-5 bg-d3">
+                        <h3 class="font-tight font-bold text-sm mb-2">White Piping</h3>
+                        <p class="text-white/45 text-xs leading-relaxed mb-4">Sharp white piping on black. Understated but stylish. Popular for names and monograms.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[11px] text-white/40">From <strong class="text-white font-bold">&pound;41.99</strong></span>
+                            <button onclick="openEnquiry('White Piping')" class="font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-px bg-transparent border-0 cursor-pointer">Personalise This Design</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">
-                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">
+                <div class="product-card border-0 overflow-hidden bg-d3 transition-colors" style="border-radius:2px;" data-reveal>
+                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#1F1F1F;">
                         <img src="images/focus-red-quilted.jpg" alt="Red Quilted Piping seat cover" class="w-full h-full object-cover">
-                        <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">On Sale</span>
-                        <div class="product-actions absolute inset-x-3 bottom-3">
-                            <button onclick="openEnquiry('Red Quilted Piping')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>
-                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-white/25 absolute top-3 left-3">On Sale</span>
                     </div>
-                    <div style="padding:20px;">
-                        <h3 style="font-weight:700;margin-bottom:6px;">Red Quilted Piping</h3>
-                        <p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">Quilted finish with vibrant red piping. Stands out. Brilliant for logos and bold text.</p>
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£41.99</strong></span>
-                            <button onclick="openEnquiry('Red Quilted Piping')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>
+                    <div class="p-5 bg-d3">
+                        <h3 class="font-tight font-bold text-sm mb-2">Red Quilted Piping</h3>
+                        <p class="text-white/45 text-xs leading-relaxed mb-4">Quilted finish with vibrant red piping. Stands out. Brilliant for logos and bold text.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[11px] text-white/40">From <strong class="text-white font-bold">&pound;41.99</strong></span>
+                            <button onclick="openEnquiry('Red Quilted Piping')" class="font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-px bg-transparent border-0 cursor-pointer">Personalise This Design</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="product-card rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.14]" style="background:#1c1c1c;">
-                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#242424;">
+                <div class="product-card border-0 overflow-hidden bg-d3 transition-colors" style="border-radius:2px;" data-reveal>
+                    <div class="product-img-wrap relative" style="aspect-ratio:4/3;background:#1F1F1F;">
                         <img src="images/focus-blue-quilted.jpg" alt="Blue Quilted Piping seat cover" class="w-full h-full object-cover">
-                        <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 10px;border-radius:999px;position:absolute;top:12px;left:12px;">On Sale</span>
-                        <div class="product-actions absolute inset-x-3 bottom-3">
-                            <button onclick="openEnquiry('Blue Quilted Piping')" style="width:100%;background:#dc2626;color:#fff;font-size:12px;font-weight:600;padding:10px;border-radius:12px;border:none;cursor:pointer;">Personalise This Design</button>
-                        </div>
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-white/25 absolute top-3 left-3">On Sale</span>
                     </div>
-                    <div style="padding:20px;">
-                        <h3 style="font-weight:700;margin-bottom:6px;">Blue Quilted Piping</h3>
-                        <p style="color:rgba(255,255,255,0.45);font-size:12px;line-height:1.6;margin-bottom:12px;">Premium quilted look with blue piping. Refined and sporty at the same time.</p>
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span style="font-size:13px;color:rgba(255,255,255,0.4);">From <strong style="color:#fff;">£42.98</strong></span>
-                            <button onclick="openEnquiry('Blue Quilted Piping')" style="font-size:12px;color:#dc2626;background:none;border:none;cursor:pointer;font-weight:500;">Order this &rarr;</button>
+                    <div class="p-5 bg-d3">
+                        <h3 class="font-tight font-bold text-sm mb-2">Blue Quilted Piping</h3>
+                        <p class="text-white/45 text-xs leading-relaxed mb-4">Premium quilted look with blue piping. Refined and sporty at the same time.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[11px] text-white/40">From <strong class="text-white font-bold">&pound;42.98</strong></span>
+                            <button onclick="openEnquiry('Blue Quilted Piping')" class="font-mono text-[10px] uppercase tracking-widest text-white/50 hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-px bg-transparent border-0 cursor-pointer">Personalise This Design</button>
                         </div>
                     </div>
                 </div>
@@ -379,77 +319,54 @@
     </section>
 
     <!-- ===== WHAT CAN WE PRINT ===== -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <section class="py-32 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div>
-                    <span class="text-brand text-xs font-bold uppercase tracking-[0.2em]">No limits</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-5">What can we print?</h2>
-                    <p class="text-white/50 text-sm leading-relaxed mb-8">Pretty much anything. If you can think it, we can print it. Here are some of the most popular options, but honestly, just ask us and we'll tell you if it's doable.</p>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-4">/No limits</p>
+                    <h2 class="font-tight text-4xl sm:text-5xl font-black leading-[0.9] tracking-[-0.02em] mb-6">What can we print?</h2>
+                    <p class="text-white/50 text-sm leading-relaxed mb-10">Pretty much anything. If you can think it, we can print it. Here are some of the most popular options, but honestly, just ask us and we'll tell you if it's doable.</p>
 
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-user text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Names &amp; Nicknames</span>
+                    <div class="divide-y divide-white/[0.07]">
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Names &amp; Nicknames</span>
                         </div>
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-quote-left text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Quotes &amp; Lyrics</span>
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Quotes &amp; Lyrics</span>
                         </div>
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-shield text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Club Badges &amp; Crests</span>
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Club Badges &amp; Crests</span>
                         </div>
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-hashtag text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Numbers &amp; Dates</span>
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Numbers &amp; Dates</span>
                         </div>
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-image text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Photos &amp; Artwork</span>
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Photos &amp; Artwork</span>
                         </div>
-                        <div class="bg-d3 border border-white/[0.05] rounded-2xl p-4 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-brand/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-star text-brand text-sm"></i>
-                            </div>
-                            <span class="text-sm font-medium">Business Logos</span>
+                        <div class="py-4 flex items-center justify-between">
+                            <span class="text-sm text-white/70 font-medium">Business Logos</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-d3 border border-white/[0.05] rounded-3xl p-8">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-lightbulb text-brand"></i>
-                        </div>
-                        <h3 class="font-bold text-lg">Got something else in mind?</h3>
-                    </div>
+                <div class="border border-white/[0.07] p-8">
+                    <h3 class="font-tight font-bold text-lg mb-4">Got something else in mind?</h3>
                     <p class="text-white/50 text-sm leading-relaxed mb-6">We get some pretty creative requests. Anniversary messages, kids' names, favourite band logos, inside jokes. We've printed them all. If you're not sure whether we can do it, just ask. Nine times out of ten the answer is yes.</p>
-                    <a href="#order" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
-                        Send us your idea <i class="fas fa-arrow-right text-xs"></i>
+                    <a href="#order" class="inline-block bg-brand hover:bg-brand-dark text-white font-mono text-[11px] font-semibold px-6 py-3 tracking-widest uppercase transition-colors">
+                        Send us your idea
                     </a>
 
-                    <div class="mt-8 pt-6 border-t border-white/[0.05]">
-                        <p class="text-xs text-white/30 mb-3 uppercase tracking-wider font-semibold">Fits most car models including</p>
+                    <div class="mt-8 pt-6 border-t border-white/[0.07]">
+                        <p class="font-mono text-[10px] text-white/30 mb-4 uppercase tracking-widest">Fits most car models including</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Ford</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Volkswagen</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">BMW</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Toyota</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Audi</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Vauxhall</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">Nissan</span>
-                            <span class="text-xs bg-white/5 border border-white/8 px-3 py-1.5 rounded-lg text-white/50">+ many more</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Ford</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Volkswagen</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">BMW</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Toyota</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Audi</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Vauxhall</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">Nissan</span>
+                            <span class="font-mono text-[10px] border border-white/[0.07] px-3 py-1.5 uppercase tracking-widest text-white/50">+ many more</span>
                         </div>
                     </div>
                 </div>
@@ -458,180 +375,162 @@
     </section>
 
     <!-- ===== PROMO BANNER ===== -->
-    <section class="px-4 sm:px-6 lg:px-8 pb-24">
+    <section class="py-32 px-4 sm:px-6 lg:px-8 border-t border-white/[0.07]">
         <div class="max-w-7xl mx-auto">
-            <div class="relative overflow-hidden rounded-3xl bg-d3">
-                <div class="absolute inset-0 opacity-25"
-                    style="background: radial-gradient(ellipse at 15% 50%, rgba(220,38,38,0.5) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, rgba(37,99,235,0.4) 0%, transparent 55%);">
-                </div>
-                <div class="absolute inset-0 opacity-[0.025]"
-                    style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 48px 48px;">
-                </div>
-                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 p-8 sm:p-12 lg:p-16">
-                    <div>
-                        <span class="inline-block bg-brand/15 border border-brand/25 text-brand text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-5">Sale on now</span>
-                        <h2 class="text-4xl sm:text-5xl font-black mb-2">Summer Sale</h2>
-                        <p class="text-white/50 text-lg mb-8">Up to 70% off. Ends soon.</p>
-                        <div class="flex items-center gap-3">
-                            <div class="text-center bg-dark/60 border border-white/10 rounded-2xl px-4 py-3 min-w-[64px]">
-                                <div class="text-2xl font-black tabular-nums" id="cDays">00</div>
-                                <div class="text-[10px] text-white/35 uppercase tracking-widest mt-0.5">Days</div>
-                            </div>
-                            <span class="text-xl font-black text-brand">:</span>
-                            <div class="text-center bg-dark/60 border border-white/10 rounded-2xl px-4 py-3 min-w-[64px]">
-                                <div class="text-2xl font-black tabular-nums" id="cHours">00</div>
-                                <div class="text-[10px] text-white/35 uppercase tracking-widest mt-0.5">Hours</div>
-                            </div>
-                            <span class="text-xl font-black text-brand">:</span>
-                            <div class="text-center bg-dark/60 border border-white/10 rounded-2xl px-4 py-3 min-w-[64px]">
-                                <div class="text-2xl font-black tabular-nums" id="cMins">00</div>
-                                <div class="text-[10px] text-white/35 uppercase tracking-widest mt-0.5">Mins</div>
-                            </div>
-                            <span class="text-xl font-black text-brand">:</span>
-                            <div class="text-center bg-dark/60 border border-white/10 rounded-2xl px-4 py-3 min-w-[64px]">
-                                <div class="text-2xl font-black tabular-nums" id="cSecs">00</div>
-                                <div class="text-[10px] text-white/35 uppercase tracking-widest mt-0.5">Secs</div>
-                            </div>
+            <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
+                <div>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-8">/Sale on now</p>
+                    <h2 class="font-tight text-7xl sm:text-9xl font-black tracking-[-0.04em] leading-none mb-12">70%<br>off.</h2>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <div class="text-center border border-white/[0.07] px-5 py-4">
+                            <div class="font-tight text-2xl font-black tabular-nums" id="cDays">00</div>
+                            <div class="font-mono text-[9px] uppercase tracking-widest text-white/30 mt-1">Days</div>
+                        </div>
+                        <span class="font-tight text-xl font-black text-white/20">:</span>
+                        <div class="text-center border border-white/[0.07] px-5 py-4">
+                            <div class="font-tight text-2xl font-black tabular-nums" id="cHours">00</div>
+                            <div class="font-mono text-[9px] uppercase tracking-widest text-white/30 mt-1">Hours</div>
+                        </div>
+                        <span class="font-tight text-xl font-black text-white/20">:</span>
+                        <div class="text-center border border-white/[0.07] px-5 py-4">
+                            <div class="font-tight text-2xl font-black tabular-nums" id="cMins">00</div>
+                            <div class="font-mono text-[9px] uppercase tracking-widest text-white/30 mt-1">Mins</div>
+                        </div>
+                        <span class="font-tight text-xl font-black text-white/20">:</span>
+                        <div class="text-center border border-white/[0.07] px-5 py-4">
+                            <div class="font-tight text-2xl font-black tabular-nums" id="cSecs">00</div>
+                            <div class="font-mono text-[9px] uppercase tracking-widest text-white/30 mt-1">Secs</div>
                         </div>
                     </div>
-                    <div class="flex-shrink-0 text-center">
-                        <div class="text-[6rem] font-black text-brand/15 leading-none select-none mb-4">70%</div>
-                        <a href="#order" class="inline-flex items-center gap-3 bg-brand hover:bg-brand-dark text-white font-bold px-10 py-5 rounded-2xl transition-all hover:scale-105 hover:shadow-xl hover:shadow-brand/30 text-lg">
-                            Order Now <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <p class="text-white/30 text-sm mb-6">Up to 70% off. Ends soon.</p>
+                    <a href="#order" class="inline-block bg-brand hover:bg-brand-dark text-white font-mono font-semibold text-[11px] px-10 py-5 tracking-widest uppercase transition-colors">
+                        Order Now
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-d2">
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-d2 border-t border-white/[0.07]">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-14">
-                <span class="text-brand text-xs font-bold uppercase tracking-[0.2em]">Reviews</span>
-                <h2 class="text-3xl sm:text-4xl font-black mt-2">What our customers say</h2>
+            <div class="mb-16">
+                <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-4">/Reviews</p>
+                <h2 class="font-tight text-4xl sm:text-5xl font-black leading-[0.9] tracking-[-0.02em]">What our customers say</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-d3 border border-white/[0.05] rounded-2xl p-7">
-                    <div class="flex gap-1 mb-5">
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                    </div>
-                    <p class="text-white/60 text-sm leading-relaxed mb-5">"Got my name and squad number printed on the drivers seat. Looks absolutely class. Took about 4 days to arrive and the print quality is brilliant."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-brand/20 rounded-full flex items-center justify-center text-brand font-bold text-sm flex-shrink-0">N</div>
-                        <div>
-                            <p class="text-sm font-semibold">Nathan H.</p>
-                            <p class="text-xs text-white/30">Leeds</p>
+
+            <div class="divide-y divide-white/[0.07]">
+
+                <div class="py-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12">
+                    <div>
+                        <p class="font-tight font-bold text-sm text-white">Nathan H.</p>
+                        <p class="font-mono text-[10px] text-white/30 mt-1">Leeds</p>
+                        <div class="flex gap-1 mt-3">
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
                         </div>
                     </div>
-                </div>
-                <div class="bg-d3 border border-white/[0.05] rounded-2xl p-7">
-                    <div class="flex gap-1 mb-5">
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    <div class="sm:col-span-2">
+                        <p class="text-white/55 text-sm sm:text-base leading-relaxed">"Got my name and squad number printed on the drivers seat. Looks absolutely class. Took about 4 days to arrive and the print quality is brilliant."</p>
                     </div>
-                    <p class="text-white/60 text-sm leading-relaxed mb-5">"Ordered these as a birthday present for my partner. Had their name and a little message put on. They absolutely loved them, couldn't believe how good they looked."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">E</div>
-                        <div>
-                            <p class="text-sm font-semibold">Emma W.</p>
-                            <p class="text-xs text-white/30">Manchester</p>
+                </div>
+
+                <div class="py-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12">
+                    <div>
+                        <p class="font-tight font-bold text-sm text-white">Emma W.</p>
+                        <p class="font-mono text-[10px] text-white/30 mt-1">Manchester</p>
+                        <div class="flex gap-1 mt-3">
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
                         </div>
                     </div>
-                </div>
-                <div class="bg-d3 border border-white/[0.05] rounded-2xl p-7">
-                    <div class="flex gap-1 mb-5">
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                        <i class="far fa-star text-amber-400 text-xs"></i>
+                    <div class="sm:col-span-2">
+                        <p class="text-white/55 text-sm sm:text-base leading-relaxed">"Ordered these as a birthday present for my partner. Had their name and a little message put on. They absolutely loved them, couldn't believe how good they looked."</p>
                     </div>
-                    <p class="text-white/60 text-sm leading-relaxed mb-5">"Had our company logo printed on a set for our work van. Came out really sharp and the material feels solid. Will be ordering for the rest of the fleet."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-sm flex-shrink-0">D</div>
-                        <div>
-                            <p class="text-sm font-semibold">Dave T.</p>
-                            <p class="text-xs text-white/30">Birmingham</p>
+                </div>
+
+                <div class="py-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12">
+                    <div>
+                        <p class="font-tight font-bold text-sm text-white">Dave T.</p>
+                        <p class="font-mono text-[10px] text-white/30 mt-1">Birmingham</p>
+                        <div class="flex gap-1 mt-3">
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="fas fa-star text-accent text-xs"></i>
+                            <i class="far fa-star text-accent text-xs"></i>
                         </div>
                     </div>
+                    <div class="sm:col-span-2">
+                        <p class="text-white/55 text-sm sm:text-base leading-relaxed">"Had our company logo printed on a set for our work van. Came out really sharp and the material feels solid. Will be ordering for the rest of the fleet."</p>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- ===== ORDER / CONTACT ===== -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8" id="order">
+    <section class="py-32 px-4 sm:px-6 lg:px-8" id="order">
         <div class="max-w-5xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
                 <div class="lg:col-span-2">
-                    <span class="text-brand text-xs font-bold uppercase tracking-[0.2em]">Get in touch</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">Ready to order?</h2>
-                    <p class="text-white/45 text-sm leading-relaxed mb-8">Fill in the form and tell us what you want. We'll get back to you within a few hours to confirm the design and sort the payment.</p>
+                    <p class="font-mono text-[11px] text-accent tracking-[0.2em] uppercase mb-4">/Get in touch</p>
+                    <h2 class="font-tight text-4xl sm:text-5xl font-black leading-[0.9] tracking-[-0.02em] mt-2 mb-6">Ready to order?</h2>
+                    <p class="text-white/45 text-sm leading-relaxed mb-10">Fill in the form and tell us what you want. We'll get back to you within a few hours to confirm the design and sort the payment.</p>
 
-                    <div class="space-y-5">
-                        <a href="mailto:support@teeautocare.com" class="flex items-center gap-4 group">
-                            <div class="w-11 h-11 bg-d3 border border-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:border-brand/30 group-hover:bg-brand/8 transition-all">
-                                <i class="fas fa-envelope text-white/40 group-hover:text-brand transition-colors text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-white/30 mb-0.5">Email us</p>
-                                <p class="text-sm font-medium text-white/70 group-hover:text-white transition-colors">support@teeautocare.com</p>
+                    <div class="space-y-6">
+                        <a href="mailto:support@teeautocare.com" class="flex items-start gap-4 group">
+                            <div class="pt-0.5">
+                                <p class="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-1">Email us</p>
+                                <p class="text-sm text-white/60 group-hover:text-white transition-colors">support@teeautocare.com</p>
                             </div>
                         </a>
-                        <a href="tel:+441234567890" class="flex items-center gap-4 group">
-                            <div class="w-11 h-11 bg-d3 border border-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:border-brand/30 group-hover:bg-brand/8 transition-all">
-                                <i class="fas fa-phone text-white/40 group-hover:text-brand transition-colors text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-white/30 mb-0.5">Call us</p>
-                                <p class="text-sm font-medium text-white/70 group-hover:text-white transition-colors">+44 (0) 123 456 789</p>
+                        <a href="tel:+441234567890" class="flex items-start gap-4 group">
+                            <div class="pt-0.5">
+                                <p class="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-1">Call us</p>
+                                <p class="text-sm text-white/60 group-hover:text-white transition-colors">+44 (0) 123 456 789</p>
                             </div>
                         </a>
-                        <div class="flex items-center gap-4">
-                            <div class="w-11 h-11 bg-d3 border border-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-clock text-white/40 text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-white/30 mb-0.5">Response time</p>
-                                <p class="text-sm font-medium text-white/70">Usually within a few hours</p>
-                            </div>
+                        <div>
+                            <p class="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-1">Response time</p>
+                            <p class="text-sm text-white/60">Usually within a few hours</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-3 bg-d3 border border-white/[0.06] rounded-3xl p-7 sm:p-8">
+                <div class="lg:col-span-3 border border-white/[0.07] p-7 sm:p-8">
                     <form id="orderForm" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">Your Name</label>
+                                <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">Your Name</label>
                                 <input type="text" name="name" required placeholder="John Smith"
-                                    class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors">
+                                    class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors" style="border-radius:2px;">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">Email Address</label>
+                                <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">Email Address</label>
                                 <input type="email" name="email" required placeholder="john@email.com"
-                                    class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors">
+                                    class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors" style="border-radius:2px;">
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">Phone (optional)</label>
+                                <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">Phone (optional)</label>
                                 <input type="tel" name="phone" placeholder="+44 7700 000000"
-                                    class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors">
+                                    class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors" style="border-radius:2px;">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">Design Style</label>
+                                <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">Design Style</label>
                                 <select name="design"
-                                    class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white/70 focus:outline-none text-sm transition-colors appearance-none cursor-pointer">
+                                    class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white/70 focus:outline-none text-sm transition-colors appearance-none cursor-pointer" style="border-radius:2px;">
                                     <option value="">Select a style...</option>
                                     <option>Blue Racing</option>
                                     <option>Blue Piping</option>
@@ -643,25 +542,25 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">What do you want printed?</label>
+                            <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">What do you want printed?</label>
                             <textarea name="personalisation" required rows="3" placeholder="e.g. My name 'Alex' on the driver's seat with the number 7..."
-                                class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors resize-none"></textarea>
+                                class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors resize-none" style="border-radius:2px;"></textarea>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wider">Anything else?</label>
+                            <label class="block font-mono text-[10px] text-white/40 mb-2 uppercase tracking-widest">Anything else?</label>
                             <textarea name="message" rows="2" placeholder="Car model, colour preferences, questions..."
-                                class="w-full bg-d4 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors resize-none"></textarea>
+                                class="w-full bg-d4 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/20 focus:outline-none text-sm transition-colors resize-none" style="border-radius:2px;"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-4 rounded-xl transition-colors text-sm">
+                        <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-mono font-semibold text-[11px] py-4 tracking-widest uppercase transition-colors">
                             Send My Order Request
                         </button>
-                        <p class="text-center text-xs text-white/25">We'll get back to you within a few hours to confirm everything.</p>
+                        <p class="text-center font-mono text-[10px] text-white/25 tracking-wide">We'll get back to you within a few hours to confirm everything.</p>
                     </form>
                     <div id="orderSuccess" class="hidden text-center py-10">
-                        <div class="w-16 h-16 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <div class="w-16 h-16 border border-green-500/20 flex items-center justify-center mx-auto mb-5">
                             <i class="fas fa-check text-green-400 text-xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Request sent!</h3>
+                        <h3 class="font-tight font-bold text-lg mb-2">Request sent!</h3>
                         <p class="text-white/45 text-sm">We'll be in touch shortly to get your design sorted.</p>
                     </div>
                 </div>
@@ -670,32 +569,29 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-d3 border-t border-white/[0.05]">
+    <footer class="bg-d2 border-t border-white/[0.07]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
                 <div class="col-span-2 md:col-span-1">
-                    <a href="/" class="flex items-center gap-2.5 mb-4">
-                        <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center shadow-lg shadow-brand/30">
-                            <i class="fas fa-car text-white text-xs"></i>
-                        </div>
-                        <span class="text-lg font-black tracking-tight">Tee<span class="text-brand">Auto</span>Care</span>
+                    <a href="/" class="inline-block mb-4">
+                        <span class="font-tight font-bold text-sm text-white">TeeAutoCare</span>
                     </a>
                     <p class="text-white/35 text-sm leading-relaxed mb-6">Personalised seat covers, printed to order. UK-based, delivered fast.</p>
                     <div class="flex gap-2">
-                        <a href="#" class="w-9 h-9 bg-white/[0.04] hover:bg-brand/15 border border-white/[0.06] hover:border-brand/30 rounded-xl flex items-center justify-center text-white/35 hover:text-brand transition-all">
+                        <a href="#" class="w-9 h-9 border border-white/[0.06] hover:border-white/20 flex items-center justify-center text-white/30 hover:text-white transition-all" style="border-radius:2px;">
                             <i class="fab fa-facebook-f text-xs"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 bg-white/[0.04] hover:bg-brand/15 border border-white/[0.06] hover:border-brand/30 rounded-xl flex items-center justify-center text-white/35 hover:text-brand transition-all">
+                        <a href="#" class="w-9 h-9 border border-white/[0.06] hover:border-white/20 flex items-center justify-center text-white/30 hover:text-white transition-all" style="border-radius:2px;">
                             <i class="fab fa-instagram text-xs"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 bg-white/[0.04] hover:bg-brand/15 border border-white/[0.06] hover:border-brand/30 rounded-xl flex items-center justify-center text-white/35 hover:text-brand transition-all">
+                        <a href="#" class="w-9 h-9 border border-white/[0.06] hover:border-white/20 flex items-center justify-center text-white/30 hover:text-white transition-all" style="border-radius:2px;">
                             <i class="fab fa-tiktok text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-[0.15em] text-white/35 mb-5">Quick Links</h4>
+                    <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/35 mb-5">Quick Links</h4>
                     <ul class="space-y-3">
                         <li><a href="#how-it-works" class="text-sm text-white/50 hover:text-white transition-colors">How It Works</a></li>
                         <li><a href="#designs" class="text-sm text-white/50 hover:text-white transition-colors">Our Designs</a></li>
@@ -704,7 +600,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-[0.15em] text-white/35 mb-5">Help</h4>
+                    <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/35 mb-5">Help</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-sm text-white/50 hover:text-white transition-colors">FAQ</a></li>
                         <li><a href="#" class="text-sm text-white/50 hover:text-white transition-colors">Shipping Info</a></li>
@@ -714,34 +610,31 @@
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-[0.15em] text-white/35 mb-5">Contact</h4>
+                    <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/35 mb-5">Contact</h4>
                     <ul class="space-y-4">
                         <li>
-                            <a href="mailto:support@teeautocare.com" class="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors">
-                                <span class="w-7 h-7 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-brand text-[11px]"></i></span>
+                            <a href="mailto:support@teeautocare.com" class="text-sm text-white/50 hover:text-white transition-colors">
                                 support@teeautocare.com
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+441234567890" class="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors">
-                                <span class="w-7 h-7 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-brand text-[11px]"></i></span>
+                            <a href="tel:+441234567890" class="text-sm text-white/50 hover:text-white transition-colors">
                                 +44 (0) 123 456 789
                             </a>
                         </li>
-                        <li class="flex items-center gap-3 text-sm text-white/50">
-                            <span class="w-7 h-7 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-location-dot text-brand text-[11px]"></i></span>
+                        <li class="text-sm text-white/50">
                             United Kingdom
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/[0.05] mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-white/25">© 2025 Tee Auto Care. All rights reserved.</p>
+            <div class="border-t border-white/[0.07] mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="font-mono text-[10px] text-white/25 tracking-wide">&copy; 2025 Tee Auto Care. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-xs text-white/25 hover:text-white/50 transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-xs text-white/25 hover:text-white/50 transition-colors">Terms</a>
-                    <a href="#" class="text-xs text-white/25 hover:text-white/50 transition-colors">Cookies</a>
+                    <a href="#" class="font-mono text-[10px] text-white/25 hover:text-white/50 transition-colors">Privacy Policy</a>
+                    <a href="#" class="font-mono text-[10px] text-white/25 hover:text-white/50 transition-colors">Terms</a>
+                    <a href="#" class="font-mono text-[10px] text-white/25 hover:text-white/50 transition-colors">Cookies</a>
                 </div>
             </div>
         </div>
@@ -750,28 +643,28 @@
     <!-- ===== ENQUIRY MODAL ===== -->
     <div id="enquiryModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
         <div id="enquiryBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-        <div class="relative bg-d2 border border-white/[0.08] rounded-3xl w-full max-w-lg shadow-2xl">
-            <button id="enquiryClose" class="absolute top-4 right-4 w-9 h-9 bg-white/5 hover:bg-white/10 rounded-xl flex items-center justify-center text-white/40 hover:text-white transition-all">
+        <div class="relative bg-d2 border border-white/[0.08] w-full max-w-lg" style="border-radius:4px;">
+            <button id="enquiryClose" class="absolute top-4 right-4 w-9 h-9 border border-white/[0.08] hover:border-white/20 flex items-center justify-center text-white/40 hover:text-white transition-all">
                 <i class="fas fa-times text-sm"></i>
             </button>
             <div class="p-7">
-                <h3 class="text-xl font-bold mb-1" id="enquiryTitle">Interested in this style?</h3>
+                <h3 class="font-tight text-xl font-bold mb-1" id="enquiryTitle">Interested in this style?</h3>
                 <p class="text-white/40 text-sm mb-6">Fill in your details and we'll get back to you to sort the personalisation.</p>
                 <form id="enquiryForm" class="space-y-3">
                     <input type="hidden" name="design" id="enquiryDesign">
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <input type="text" name="name" required placeholder="Your name"
-                                class="w-full bg-d3 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors">
+                                class="w-full bg-d3 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors" style="border-radius:2px;">
                         </div>
                         <div>
                             <input type="email" name="email" required placeholder="Email address"
-                                class="w-full bg-d3 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors">
+                                class="w-full bg-d3 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors" style="border-radius:2px;">
                         </div>
                     </div>
                     <textarea name="personalisation" rows="3" required placeholder="What do you want printed? Name, number, quote..."
-                        class="w-full bg-d3 border border-white/[0.08] focus:border-brand/40 rounded-xl px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors resize-none"></textarea>
-                    <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3.5 rounded-xl transition-colors">
+                        class="w-full bg-d3 border border-white/[0.08] focus:border-accent/40 px-4 py-3 text-white placeholder-white/25 focus:outline-none text-sm transition-colors resize-none" style="border-radius:2px;"></textarea>
+                    <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-mono font-semibold text-[11px] py-3.5 tracking-widest uppercase transition-colors">
                         Send Enquiry
                     </button>
                 </form>
